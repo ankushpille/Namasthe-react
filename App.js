@@ -17,18 +17,21 @@ const HeadingComponent = () => {
     return <h1>Hello namsthe from functional component</h1>
 }
 
-const title = (
-     <h1>this is the title from react element</h1>
-)
-
 //2way
 const HeadingComponent2 = () => (
     <div id="container">
-    {title}
     <TitleComponent/>
      <h1>Hello component 2 from functional</h1>
      </div>
 )
+
+const title = (
+    <div>
+    <h1>this is the title from react element</h1>
+    <HeadingComponent2/>
+        </div>
+)
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<HeadingComponent2/>);
+root.render(title);
 
