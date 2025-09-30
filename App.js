@@ -1,17 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client'
 
-
-//react.createelement => js-object => htmlelement(render)
-const heading = React.createElement('h1',{id: 'h1'},'hello this heading from react')
-console.log("heading",heading);
-
-
 //jsx => React.createelement => js-object => htmlelement(render)
-const reactHeading = <h1>Hello ankush from jsx</h1>
+//react element
+const reactHeading = (<h1 className='heading'>Hello ankush from jsx
+</h1>)
 
 console.log("reactHeading",reactHeading);
 
+//1way
+const HeadingComponent = () => {
+    return <h1>Hello namsthe from functional component</h1>
+}
+
+//2way
+const HeadingComponent2 = () => (
+     <h1>Hello component 2 from functional</h1>
+)
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(reactHeading);
+root.render(<HeadingComponent2/>);
 
