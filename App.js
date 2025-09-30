@@ -6,6 +6,10 @@ import ReactDOM from 'react-dom/client'
 const reactHeading = (<h1 className='heading'>Hello ankush from jsx
 </h1>)
 
+const TitleComponent = () => {
+     return <h1>Hello react title component</h1>
+}
+
 console.log("reactHeading",reactHeading);
 
 //1way
@@ -15,7 +19,10 @@ const HeadingComponent = () => {
 
 //2way
 const HeadingComponent2 = () => (
+    <div id="container">
+    <TitleComponent/>
      <h1>Hello component 2 from functional</h1>
+     </div>
 )
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<HeadingComponent2/>);
