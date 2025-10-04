@@ -1,37 +1,37 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client'
+import './index.css';
 
-//jsx => React.createelement => js-object => htmlelement(render)
-//react element
-const reactHeading = (<h1 className='heading'>Hello ankush from jsx
-</h1>)
 
-const TitleComponent = () => {
-     return <h1>Hello react title component</h1>
+const Header = () => {
+    return (
+        <div className='Header'>
+             <div className='Header-logo'>
+                  <img  src='https://marketplace.canva.com/EAGXsRURT9o/1/0/1600w/canva-yellow-and-brown-kitchen-food-logo-JrzZUwc_CLQ.jpg'/>
+             </div>
+
+            <div className='nav-items'>
+                   <ul>
+                       <li>Home</li>
+                       <li>About us</li>
+                       <li>Contact us</li>
+                       <li>Cart</li>
+                    </ul>
+            </div>
+        </div>  
+    )
 }
 
-console.log("reactHeading",reactHeading);
 
-//1way
-const HeadingComponent = () => {
-    return <h1>Hello namsthe from functional component</h1>
+const AppLayout = () => {
+      return (
+          <div className='applayout'>
+              <Header/>
+              
+          </div>
+      )
 }
-
-//2way
-const HeadingComponent2 = () => (
-    <div id="container">
-    <TitleComponent/>
-     <h1>Hello component 2 from functional</h1>
-     </div>
-)
-
-const title = (
-    <div>
-    <h1>this is the title from react element</h1>
-    <HeadingComponent2/>
-        </div>
-)
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(title);
+root.render(<AppLayout/>);
 
