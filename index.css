@@ -17,4 +17,38 @@
 .nav-items li{
     padding: 5px;
     margin: 5px;
+    font-size: 30px; /* increase this value as needed */
+}
+
+.resto-card{
+    border: 1px solid black;
+    width: 200px;
+    height: 350px;
+    background-color: #f0f0f0;
+    padding: 5px;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+.resto-card img{
+    width:  100%;
+}
+
+.resto-card:hover{
+    border: 2px solid orange;
+}
+
+.search{
+    width: 100%;
+    text-align: center;
+}
+
+.body-container{
+    display: flex;
+    margin: 15px;
+    padding: 20px;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+
 }
