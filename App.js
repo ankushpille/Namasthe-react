@@ -5,13 +5,15 @@ import './index.css';
 
 
 const RestoCard = (props) => {
-    const {name,cuisine,rating,deliveryTime,costForTwo} = props.resobj.restaurant
+    const {resobj} = props
+    const {name,cuisine,rating,deliveryTime,costForTwo} = resobj
+    console.log(name)
     console.log(name)
      return (
         <div className='resto-card'>
             <img alt='restaurant-logo' src={props.image} />
             <h3>{name}</h3>
-            <h4>{cuisine.join(",")}</h4>
+            <h4>{cuisine.join(',')}</h4>
             <h4>{rating}</h4>
             <h4>{deliveryTime}</h4>
             <h4>₹{costForTwo} For two</h4>
@@ -20,74 +22,113 @@ const RestoCard = (props) => {
 }
 
 
-const kfcresObj = {
-  "restaurant": {
+const resList = [
+  {
     "id": "kfc123",
     "name": "KFC",
     "cuisine": ["American", "Fast Food", "Burgers"],
     "rating": 4.2,
-    "reviews": 1250,
     "deliveryTime": 30,
     "costForTwo": 450,
-    "imageUrl": "https://res.cloudinary.com/kfc-image.jpg",
-    "address": {
-      "street": "MG Road",
-      "city": "Hyderabad",
-      "state": "Telangana",
-      "pincode": "500081"
-    },
-    "menu": [
-      {
-        "id": "menu1",
-        "name": "Zinger Burger",
-        "description": "Spicy chicken patty with lettuce and mayo",
-        "price": 150,
-        "imageUrl": "https://res.cloudinary.com/kfc-zinger.jpg",
-        "category": "Burgers"
-      },
-      {
-        "id": "menu2",
-        "name": "Bucket of 8 Hot Wings",
-        "description": "Hot and crispy chicken wings",
-        "price": 400,
-        "imageUrl": "https://res.cloudinary.com/kfc-wings.jpg",
-        "category": "Chicken"
-      },
-      {
-        "id": "menu3",
-        "name": "Popcorn Chicken",
-        "description": "Crunchy bite-sized chicken pieces",
-        "price": 200,
-        "imageUrl": "https://res.cloudinary.com/kfc-popcorn.jpg",
-        "category": "Snacks"
-      },
-      {
-        "id": "menu4",
-        "name": "French Fries",
-        "description": "Classic crispy fries",
-        "price": 80,
-        "imageUrl": "https://res.cloudinary.com/kfc-fries.jpg",
-        "category": "Sides"
-      },
-      {
-        "id": "menu5",
-        "name": "Pepsi 500ml",
-        "description": "Refreshing soft drink",
-        "price": 50,
-        "imageUrl": "https://res.cloudinary.com/kfc-pepsi.jpg",
-        "category": "Beverages"
-      }
-    ]
+    "imageUrl": "https://res.cloudinary.com/kfc-image.jpg"
+  },
+  {
+    "id": "dominos456",
+    "name": "Domino's Pizza",
+    "cuisine": ["Italian", "Pizza", "Fast Food"],
+    "rating": 4.4,
+    "deliveryTime": 25,
+    "costForTwo": 500,
+    "imageUrl": "https://res.cloudinary.com/dominos-pizza.jpg"
+  },
+  {
+    "id": "mcd789",
+    "name": "McDonald's",
+    "cuisine": ["American", "Burgers", "Fast Food"],
+    "rating": 4.1,
+    "deliveryTime": 20,
+    "costForTwo": 400,
+    "imageUrl": "https://res.cloudinary.com/mcdonalds.jpg"
+  },
+  {
+    "id": "bbq001",
+    "name": "Barbeque Nation",
+    "cuisine": ["Indian", "BBQ", "Buffet"],
+    "rating": 4.5,
+    "deliveryTime": 40,
+    "costForTwo": 1200,
+    "imageUrl": "https://res.cloudinary.com/bbq-nation.jpg"
+  },
+  {
+    "id": "pizzahut002",
+    "name": "Pizza Hut",
+    "cuisine": ["Italian", "Pizza", "Fast Food"],
+    "rating": 4.0,
+    "deliveryTime": 28,
+    "costForTwo": 550,
+    "imageUrl": "https://res.cloudinary.com/pizza-hut.jpg"
+  },
+  {
+    "id": "subway003",
+    "name": "Subway",
+    "cuisine": ["Healthy", "Sandwiches", "Salads"],
+    "rating": 4.3,
+    "deliveryTime": 22,
+    "costForTwo": 350,
+    "imageUrl": "https://res.cloudinary.com/subway.jpg"
+  },
+  {
+    "id": "biryani004",
+    "name": "Paradise Biryani",
+    "cuisine": ["Indian", "Hyderabadi", "Biryani"],
+    "rating": 4.6,
+    "deliveryTime": 35,
+    "costForTwo": 700,
+    "imageUrl": "https://res.cloudinary.com/paradise-biryani.jpg"
+  },
+  {
+    "id": "chai005",
+    "name": "Chai Point",
+    "cuisine": ["Tea", "Snacks", "Indian"],
+    "rating": 4.2,
+    "deliveryTime": 15,
+    "costForTwo": 250,
+    "imageUrl": "https://res.cloudinary.com/chai-point.jpg"
+  },
+  {
+    "id": "wow006",
+    "name": "Wow! Momo",
+    "cuisine": ["Chinese", "Tibetan", "Snacks"],
+    "rating": 4.1,
+    "deliveryTime": 27,
+    "costForTwo": 300,
+    "imageUrl": "https://res.cloudinary.com/wow-momo.jpg"
+  },
+  {
+    "id": "starbucks007",
+    "name": "Starbucks",
+    "cuisine": ["Cafe", "Coffee", "Bakery"],
+    "rating": 4.5,
+    "deliveryTime": 18,
+    "costForTwo": 600,
+    "imageUrl": "https://res.cloudinary.com/starbucks.jpg"
   }
-}
+]
+
+
 
 
 const Body = () => {
      return (
       <div className='body-container'>
         <div className='search'>Search</div>
-        {/* <RestoCard restroName="MFC" cuisine="biryani,kababs,shwarma" distance="35minus" rating="4.2*" image='https://www.thehosteller.com/_next/image/?url=https%3A%2F%2Fstatic.thehosteller.com%2Fhostel%2Fimages%2Fimage.jpg%2Fimage-1744199226259.jpg&w=1200&q=75'/> */}
-        <RestoCard resobj={kfcresObj} image="https://www.shutterstock.com/shutterstock/photos/2194700031/display_1500/stock-photo-lopburi-thai-august-have-lunch-at-kfc-restaurant-box-zinger-burger-and-fried-chicken-set-2194700031.jpg"/>
+        {
+                resList.map((restaurant => (
+                    <RestoCard key={restaurant.id} resobj={restaurant} image="https://www.citypng.com/public/uploads/preview/domino039s-pizza-logo-hd-transparent-background-735811696675648utxbcdqal9.png"/>
+                )))
+            
+          }
+            
       </div>
 
      )
