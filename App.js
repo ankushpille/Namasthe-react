@@ -7,8 +7,6 @@ import './index.css';
 const RestoCard = (props) => {
     const {resobj} = props
     const {name,cuisine,rating,deliveryTime,costForTwo} = resobj
-    console.log(name)
-    console.log(name)
      return (
         <div className='resto-card'>
             <img alt='restaurant-logo' src={props.image} />
